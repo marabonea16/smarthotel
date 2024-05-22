@@ -484,8 +484,138 @@
     border-right: 1px solid rgba(255, 255, 255, .3);
 }
 
+
 .footer .footer-menu a:last-child {
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+
+.light-control-panel {
+    padding: 20px;
+    text-align: center;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+    border-radius: 10px;
+}
+
+.light-control-buttons {
+    margin-bottom: 20px;
+}
+
+.light-control-button {
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: .5s;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.light-bulb {
+    width: 130px;
+    height: 130px;
+    background-color: yellow; /* Default color */
+    border-radius: 50%;
+    margin: 20px auto;
+    transition: background-color 0.5s ease;
+}
+
+.window-control-panel {
+    padding: 20px;
+    text-align: center;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+    border-radius: 10px;
+}
+
+.window-control-buttons {
+    margin-bottom: 20px;
+}
+
+.window-control-button {
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: .5s;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.window-display {
+    width: 150px;
+    height: 150px;
+    background-color: var(--light);
+    border: 3px solid var(--dark);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.window-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    transition: transform 0.5s ease;
+}
+
+.window-display.closed .window-pane {
+    transform: translateY(0%);
+}
+
+.window-display.partial .window-pane {
+    transform: translateY(50%);
+}
+
+.window-display.open .window-pane {
+    transform: translateY(100%);
+}
+
+.temperature-service-item {
+    height: 320px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #FFFFFF;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+     border-radius: 10px;
+}
+
+
+
+.temperature-service-item .temperature-control-panel {
+    margin: 0 auto;
+}
+
+.temperature-service-item .temperature-control-buttons {
+    margin-bottom: 20px;
+}
+
+.temperature-service-item .temperature-control-button {
+    margin-right: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.temperature-service-item .temperature-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary);
+    padding: 10px;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    background-color: var(--light);
 }
