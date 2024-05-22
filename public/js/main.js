@@ -65,45 +65,77 @@
     });
 
 
-    // Modal Video
-    $(document).ready(function () {
-        var $videoSrc;
-        $('.btn-play').click(function () {
-            $videoSrc = $(this).data("src");
-        });
-        console.log($videoSrc);
+// Lights Control
+const lightDimButton = document.getElementById("lightDimButton");
+const lightBrightenButton = document.getElementById("lightBrightenButton");
+const lightTurnOffButton = document.getElementById("lightTurnOffButton");
+const lightBulb = document.getElementById("lightBulb");
 
-        $('#videoModal').on('shown.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
+let lightOpacity = 1;
 
-        $('#videoModal').on('hide.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc);
-        })
-    });
+lightDimButton.addEventListener("click", () => {
+    if (lightOpacity > 0.2) lightOpacity -= 0.2;
+    updateLightBulb();
+});
 
+lightBrightenButton.addEventListener("click", () => {
+    if (lightOpacity < 1) lightOpacity += 0.2;
+    updateLightBulb();
+});
 
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        margin: 25,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            768:{
-                items:2
-            }
-        }
-    });
+lightTurnOffButton.addEventListener("click", () => {
+    lightOpacity = 0;
+    updateLightBulb();
+});
+
+function updateLightBulb() {
+    lightBulb.style.opacity = lightOpacity;
+}
+
+// Windows Control
+const windowOpenButton = document.getElementById("windowOpenButton");
+const windowPartialButton = document.getElementById("windowPartialButton");
+const windowCloseButton = document.getElementById("windowCloseButton");
+const windowDisplay = document.getElementById("windowDisplay");
+
+const windowStates = {
+    closed: "closed",
+    partial: "partial",
+    open: "open"
+};
+
+let currentState = windowStates.closed;
+
+windowOpenButton.addEventListener("click", () => updateWindowState(windowStates.open));
+windowPartialButton.addEventListener("click", () => updateWindowState(windowStates.partial));
+windowCloseButton.addEventListener("click", () => updateWindowState(windowStates.closed));
+
+function updateWindowState(state) {
+    windowDisplay.classList.remove(windowStates.closed, windowStates.partial, windowStates.open);
+    windowDisplay.classList.add(state);
+    currentState = state;
+}
+
+updateWindowState(currentState);
+
+// Temperature Control
+const temperatureIncreaseButton = document.getElementById("temperatureIncreaseButton");
+const temperatureDecreaseButton = document.getElementById("temperatureDecreaseButton");
+const temperatureDisplay = document.getElementById("temperatureDisplay");
+
+let currentTemperature = 20; // Initial temperature
+
+temperatureIncreaseButton.addEventListener("click", () => updateTemperature(1));
+temperatureDecreaseButton.addEventListener("click", () => updateTemperature(-1));
+
+function updateTemperature(delta) {
+    currentTemperature += delta;
+    temperatureDisplay.textContent = `${currentTemperature}°C`;
+}
+
+// Initial display of temperature
+updateTemperature(0); // To display the initial temperature (20°C)
+
     
 })(jQuery);
 
