@@ -33,36 +33,43 @@
 </head>
 
 <body class="page-header">
-<div class="container-fluid bg-dark px-0">
-    <div class="row gx-0">
-        <div class="col-lg-3 bg-dark d-none d-lg-block">
-            <a href="home.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                <h1 class="m-0 text-primary text-uppercase">SmartHotel</h1>
-            </a>
+    <div class="container-fluid bg-dark px-0">
+        <div class="row gx-0">
+            <div class="col-lg-3 bg-dark d-none d-lg-block">
+                <a href="home.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <h1 class="m-0 text-primary text-uppercase">SmartHotel</h1>
+                </a>
+            </div>
         </div>
     </div>
-</div>
-<div class="page-header-inner d-flex align-items-center justify-content-center" style="height: 100vh;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <h2 class="section-title fw-semi-bold text-center">Login</h2>
-                    <form class="mt-4">
-                        <div class="form-group">
-                            <label for="username" class="fw-medium">Username</label>
-                            <input type="text" id="username" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="fw-medium">Password</label>
-                            <input type="password" id="password" class="form-control" required>
-                        </div>
-                        <button  type="submit" class="btn btn-primary btn-block mt-3">Login</button>
-                    </form>
+    <div class="page-header-inner d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <h2 class="section-title fw-semi-bold text-center">Login</h2>
+                        <form class="mt-4">
+                            <div class="form-group">
+                                <label for="email" class="fw-medium">Username</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="fw-medium">Password</label>
+                                <input type="password" id="password" class="form-control" required>
+                            </div>
+                            <button  type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+    <!-- Include your Firebase configuration script -->
+    <script src="js/firebase-config.js"></script>
+    <!-- Include your custom JavaScript file -->
+    <script src="js/app.js"></script>
 </body>
 </html>
