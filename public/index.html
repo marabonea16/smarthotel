@@ -57,7 +57,7 @@
                                 <label for="password" class="fw-medium">Password</label>
                                 <input type="password" id="password" class="form-control" required>
                             </div>
-                            <button  type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+                            <button id="signIn" class="btn btn-primary btn-block mt-3">Login</button>
                         </form>
                     </div>
                 </div>
@@ -65,11 +65,16 @@
         </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js" type="module"></script>
+
+
     <!-- Include your Firebase configuration script -->
-    <script src="js/firebase-config.js"></script>
+    <script src="js/firebase-config.js" type="module"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- Include your custom JavaScript file -->
     <script src="js/app.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

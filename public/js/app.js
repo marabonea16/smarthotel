@@ -11,6 +11,7 @@ function signIn() {
             const user = userCredential.user;
             console.log('User signed in:', user);
             // Redirect to dashboard or perform other actions
+             window.location.href = 'home.html';
         })
         .catch((error) => {
             // Handle sign-in errors
