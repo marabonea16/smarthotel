@@ -619,3 +619,106 @@
     border-radius: 5px;
     background-color: var(--light);
 }
+
+.client-info{
+    background-color: var(--light);
+
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.room-info {
+
+    background-color: var(--secondary);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+.edit-room-form {
+    background-color: var(--light);
+
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0 5px;
+}
+
+.edit-room-form label {
+
+    margin: 10px 0 5px;
+}
+
+.edit-room-form input[type="number"]{
+padding: 10px;
+  margin: 5px 0;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+}
+
+.edit-room-form input[type="checkbox"] {
+    margin-right: 5px;
+      transform: scale(1.5); /* Increase checkbox size */
+}
+
+.edit-room-form label{
+margin-right: 15px;
+  font-size: 16px;
+}
+
+.edit-room-form input[type="checkbox"]:checked + label::before {
+  background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.edit-room-form button {
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.edit-room-form button:hover {
+    background-color: var(--dark); /* Darken button color on hover */
+        color: var(--light); /* Maintain button text color */
+}
+
+
+.client-info h2,
+.room-info h3 {
+    color: var(--primary);
+}
+
+.client-info p,
+.room-info p {
+    margin-bottom: 10px;
+}
+
+
+
+.edit-room-btn {
+
+    top: 40px; /* Align to the top */
+    right: 45px; /* Align to the right */
+    background-color: var(--primary); /* Maintain button color */
+    color: var(--light); /* Maintain button text color */
+    border: 10px; /* Remove button border */
+    padding: 10px 20px; /* Adjust button padding */
+    border-radius: 10px; /* Maintain button border radius */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s; /* Add transition */
+
+}
+
+.edit-room-btn:hover {
+    background-color: var(--dark); /* Darken button color on hover */
+    color: var(--light); /* Maintain button text color */
+}
+

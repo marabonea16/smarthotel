@@ -44,10 +44,11 @@ public class UserStore {
         adminRef.set(adminData).get();
     }
 
-    public void storeRoom(String number, boolean lightsOn, boolean windowOpened, double temperature, boolean tvOpened, boolean doorLocked, boolean readyToClean) throws InterruptedException, ExecutionException {
-        DocumentReference roomRef = db.collection("rooms").document(number);
+    public void storeRoom(String id, int number, boolean lightsOn, boolean windowOpened, double temperature, boolean tvOpened, boolean doorLocked, boolean readyToClean) throws InterruptedException, ExecutionException {
+        DocumentReference roomRef = db.collection("rooms").document(id);
 
         Map<String, Object> roomData = new HashMap<>();
+        roomData.put("number", number);
         roomData.put("lightsOn", lightsOn);
         roomData.put("windowOpened", windowOpened);
         roomData.put("temperature", temperature);
