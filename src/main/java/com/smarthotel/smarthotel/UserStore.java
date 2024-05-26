@@ -16,7 +16,7 @@ public class UserStore {
     }
 
     public void storeClient(String id, String name, String username, String password, String role, String roomNumber, String arrival, String departure) throws InterruptedException, ExecutionException {
-        String hashedPassword = PasswordHasher.hashPassword(password);
+        String hashedPassword = PasswordHasher.hashSHA256(password);
         DocumentReference clientRef = db.collection("clients").document(id);
 
         Map<String, Object> clientData = new HashMap<>();
@@ -32,7 +32,7 @@ public class UserStore {
     }
 
     public void storeAdmin(String id, String name, String username, String password, String role) throws InterruptedException, ExecutionException {
-        String hashedPassword = PasswordHasher.hashPassword(password);
+        String hashedPassword = PasswordHasher.hashSHA256(password);
         DocumentReference adminRef = db.collection("admins").document(id);
 
         Map<String, Object> adminData = new HashMap<>();
@@ -44,7 +44,7 @@ public class UserStore {
         adminRef.set(adminData).get();
     }
 
-    public void storeRoom(String id, int number, boolean lightsOn, boolean windowOpened, double temperature, boolean tvOpened, boolean doorLocked, boolean readyToClean) throws InterruptedException, ExecutionException {
+    public void storeRoom(String id, int number, double lightsOn, boolean windowOpened, double temperature, boolean tvOpened, boolean doorLocked, boolean readyToClean) throws InterruptedException, ExecutionException {
         DocumentReference roomRef = db.collection("rooms").document(id);
 
         Map<String, Object> roomData = new HashMap<>();

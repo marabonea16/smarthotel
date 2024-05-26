@@ -16,7 +16,7 @@ public class PopulateFirestore {
                 String id = "" + i;
                 String name = "Client " + i;
                 String username = "client" + i + "@smarthotel.com";
-                String password = "password" + i;
+                String password = "client" + i;
                 String role = "client";
                 String roomNumber = "Room" + i;
                 String arrival = "2024-05-019";
@@ -29,7 +29,7 @@ public class PopulateFirestore {
                 String id = "admin" + i;
                 String name = "Admin " + i;
                 String username = "admin" + i + "@smarthotel.com";
-                String password = "adminpassword" + i;
+                String password = "admin" + i;
                 String role = "admin";
                 userStore.storeAdmin(id, name, username, password, role);
             }
@@ -38,7 +38,7 @@ public class PopulateFirestore {
             for (int i = 1; i <= 20; i++) {
                 String id = "Room" + i;
                 int number = i;
-                boolean lightsOn = false;
+                double lightsOn = 0;
                 boolean windowOpened = false;
                 double temperature = 22.0;
                 boolean tvOpened = false;

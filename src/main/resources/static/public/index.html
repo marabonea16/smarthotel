@@ -30,10 +30,13 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"></script>
+    <script type="module" src="js/app.js"></script>
 </head>
 
 <body class="page-header">
+
+<script type="module" src="js/app.js"></script>
 <div class="container-fluid bg-dark px-0">
    <div class="row gx-0">
        <div class="col-lg-3 bg-dark d-none d-lg-block">
@@ -49,25 +52,25 @@
             <div class="col-lg-4 col-md-6">
                 <div class="service-item">
                     <h2 class="section-title fw-semi-bold text-center">Login</h2>
-                    <form id="loginForm" class="mt-4">
-                        <div class="form-group">
+                    <form id="loginForm" class="mt-4 form-group">
+
                             <label for="username" class="fw-medium">Username</label>
                             <input type="text" id="username" class="form-control" required>
-                        </div>
-                        <div class="form-group">
+
                             <label for="password" class="fw-medium">Password</label>
                             <input type="password" id="password" class="form-control" required>
-                        </div>
-                        <button type="button" onclick="signin()" class="btn btn-primary btn-block mt-3">Login</button>
+
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+                        <div id="errorMessage" style="color: red; display: none;"></div>
                     </form>
-                    <div id="errorMessage" style="color: red; display: none;"></div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="js/app.js"></script>
+
 
 <!-- JavaScript Libraries -->
 
@@ -78,6 +81,6 @@
 
 <!-- Include your custom JavaScript file -->
 
-<script src="js/main.js"></script>
+
 </body>
 </html>
