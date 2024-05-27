@@ -53,6 +53,10 @@ async function getClientAndRoomInfo() {
                     roomsSnapshot.forEach(async roomDoc => {
                             const roomId = roomDoc.id;
                             const roomData = roomDoc.data();
+                             let roomLights = roomData.lightsOn !== 0;
+                             let roomWindow = roomData.windowOpened !== "closed";
+                             let roomTv = roomData.tvOpened !== "closed";
+                             let roomDoor = roomData.doorLocked == "locked";
 
                             // Retrieve room information for the current client
                             if (clientData.roomNumber == roomId) {
@@ -69,11 +73,11 @@ async function getClientAndRoomInfo() {
                                         <div class="room-info">
 
                                             <h2>Room Number: ${roomData.number}</h2>
-                                            <p>Lights On: ${roomData.lightsOn ? 'Yes' : 'No'}</p>
-                                            <p>Window Opened: ${roomData.windowOpened ? 'Yes' : 'No'}</p>
+                                            <p>Lights On: ${roomLights ? 'Yes' : 'No'}</p>
+                                            <p>Window Opened: ${roomWindow ? 'Yes' : 'No'}</p>
                                             <p>Temperature: ${roomData.temperature}°C</p>
-                                            <p>TV Opened: ${roomData.tvOpened ? 'Yes' : 'No'}</p>
-                                            <p>Door Locked: ${roomData.doorLocked ? 'Yes' : 'No'}</p>
+                                            <p>TV Opened: ${roomTv ? 'Yes' : 'No'}</p>
+                                            <p>Door Locked: ${roomDoor ? 'Yes' : 'No'}</p>
 
                                             <p>Ready to Clean: ${roomData.readyToClean ? 'Yes' : 'No'}</p>
                                             <div class="client-info">
@@ -120,20 +124,25 @@ async function getClientAndRoomInfo() {
                         const roomData = roomSnapshot.data();
                         const roomId = roomSnapshot.id;
 
+                         let roomLights = roomData.lightsOn !== 0;
+                         let roomWindow = roomData.windowOpened !== "closed";
+                         let roomTv = roomData.tvOpened !== "closed";
+                        let roomDoor = roomData.doorLocked == "locked";
+
                        const form = document.createElement('form');
                                form.classList.add('edit-room-form');
 
                                form.innerHTML = `
                                            <label for="lightsOn-${roomId}">Lights On:</label>
-                                           <input type="checkbox" id="lightsOn-${roomId}" name="lightsOn" ${roomData.lightsOn ? 'checked' : ''}><br>
+                                           <input type="checkbox" id="lightsOn-${roomId}" name="lightsOn" ${roomLights ? 'checked' : ''}><br>
                                            <label for="windowOpened-${roomId}">Window Opened:</label>
-                                           <input type="checkbox" id="windowOpened-${roomId}" name="windowOpened" ${roomData.windowOpened ? 'checked' : ''}><br>
+                                           <input type="checkbox" id="windowOpened-${roomId}" name="windowOpened" ${roomWindow ? 'checked' : ''}><br>
                                            <label for="temperature-${roomId}">Temperature:</label>
                                            <input type="number" id="temperature-${roomId}" name="temperature" value="${roomData.temperature}"><br>
                                            <label for="tvOpened-${roomId}">TV Opened:</label>
-                                           <input type="checkbox" id="tvOpened-${roomId}" name="tvOpened" ${roomData.tvOpened ? 'checked' : ''}><br>
+                                           <input type="checkbox" id="tvOpened-${roomId}" name="tvOpened" ${roomTv ? 'checked' : ''}><br>
                                            <label for="doorLocked-${roomId}">Door Locked:</label>
-                                           <input type="checkbox" id="doorLocked-${roomId}" name="doorLocked" ${roomData.doorLocked ? 'checked' : ''}><br>
+                                           <input type="checkbox" id="doorLocked-${roomId}" name="doorLocked" ${roomDoor ? 'checked' : ''}><br>
                                            <label for="readyToClean-${roomId}">Ready to Clean:</label>
                                            <input type="checkbox" id="readyToClean-${roomId}" name="readyToClean" ${roomData.readyToClean ? 'checked' : ''}><br>
                                            <button type="submit">Save</button>
@@ -148,11 +157,12 @@ async function getClientAndRoomInfo() {
                                         form.addEventListener('submit', async (e) => {
                                             e.preventDefault();
                                             const updatedData = {
-                                                lightsOn: form.elements['lightsOn'].checked,
-                                                windowOpened: form.elements['windowOpened'].checked,
+                                               lightsOn: form.elements['lightsOn'].checked ? 1 : 0,
+                                               windowOpened: form.elements['windowOpened'].checked ? "open" : "closed",
                                                 temperature: form.elements['temperature'].value,
-                                                tvOpened: form.elements['tvOpened'].checked,
-                                                doorLocked: form.elements['doorLocked'].checked,
+                                                tvOpened: form.elements['tvOpened'].checked ? "open" : "closed",
+                                                doorLocked: form.elements['doorLocked'].checked ? "locked": "unlocked",
+
                                                 readyToClean: form.elements['readyToClean'].checked
                                             };
 
@@ -178,17 +188,21 @@ async function getClientAndRoomInfo() {
                        if (change.type === "modified") {
                            const roomData = change.doc.data();
                            const roomId = change.doc.id;
+                            let roomLights = roomData.lightsOn !== 0;
+                            let roomWindow = roomData.windowOpened !== "closed";
+                            let roomTv = roomData.tvOpened !== "closed";
+                             let roomDoor = roomData.doorLocked == "locked";
 
                            // Update the room information displayed on the page
                            const roomElements = document.querySelectorAll(`[data-room="${roomId}"]`);
                            roomElements.forEach(element => {
                                const roomInfoElement = element.closest('.room-info');
                                if (roomInfoElement) {
-                                   roomInfoElement.querySelector('p:nth-child(2)').textContent = `Lights On: ${roomData.lightsOn ? 'Yes' : 'No'}`;
-                                   roomInfoElement.querySelector('p:nth-child(3)').textContent = `Window Opened: ${roomData.windowOpened ? 'Yes' : 'No'}`;
+                                   roomInfoElement.querySelector('p:nth-child(2)').textContent = `Lights On: ${roomLights ? 'Yes' : 'No'}`;
+                                   roomInfoElement.querySelector('p:nth-child(3)').textContent = `Window Opened: ${roomWindow ? 'Yes' : 'No'}`;
                                    roomInfoElement.querySelector('p:nth-child(4)').textContent = `Temperature: ${roomData.temperature}°C`;
-                                   roomInfoElement.querySelector('p:nth-child(5)').textContent = `TV Opened: ${roomData.tvOpened ? 'Yes' : 'No'}`;
-                                   roomInfoElement.querySelector('p:nth-child(6)').textContent = `Door Locked: ${roomData.doorLocked ? 'Yes' : 'No'}`;
+                                   roomInfoElement.querySelector('p:nth-child(5)').textContent = `TV Opened: ${roomTv ? 'Yes' : 'No'}`;
+                                   roomInfoElement.querySelector('p:nth-child(6)').textContent = `Door Locked: ${roomDoor ? 'Yes' : 'No'}`;
                                    roomInfoElement.querySelector('p:nth-child(7)').textContent = `Ready to Clean: ${roomData.readyToClean ? 'Yes' : 'No'}`;
                                }
                            });
@@ -206,7 +220,6 @@ async function getClientAndRoomInfo() {
 
 // Call the function to retrieve client and room information for each client
 getClientAndRoomInfo();
-
 
 
 

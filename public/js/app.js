@@ -62,7 +62,7 @@ loginForm.addEventListener('submit', async (e) => {
 
     const username = loginForm.username.value;
     const password = loginForm.password.value;
-    let hashedPassword = '';
+let hashedPassword = '';
 
 
     async function hashSHA256(input) {
@@ -84,46 +84,38 @@ loginForm.addEventListener('submit', async (e) => {
 
     try {
         // Query Firestore to find a document with matching username
-        const clientsSnapshot = await getDocs(collection(db, 'clients'), where('username', '==', username));
-        const adminsSnapshot = await getDocs(collection(db, 'admins'), where('username', '==', username));
+        const clientsRef = collection(db, 'clients');
+        const adminsRef = collection(db, 'admins');
+        const qClients = query(clientsRef, where('username', '==', username));
+        const qAdmins = query(adminsRef, where('username', '==', username));
+        const clientsSnapshot = await getDocs(qClients);
+        const adminsSnapshot = await getDocs(qAdmins);
 
-        if (clientsSnapshot.empty && adminsSnapshot.empty) {
-            // Username not found
-            loginError.textContent = "Invalid username or password.";
-            return;
+        if (!clientsSnapshot.empty) {
+            const clientDoc = clientsSnapshot.docs[0];
+            const clientData = clientDoc.data();
+
+             if (clientData.password == hashedPassword) {
+                   loginError.textContent = "";
+                   sessionStorage.setItem('username', username);
+                   window.location.href = 'home.html';
+
+             }
         }
+        else if (!adminsSnapshot.empty) {
+             const adminDoc = adminsSnapshot.docs[0];
+             const adminData = adminDoc.data();
 
-        // Assuming only one user can have the same username
-        const clientDoc = clientsSnapshot.docs[0];
-        const clientData = clientDoc.data();
+             if (adminData.password == hashedPassword) {
+                loginError.textContent = "";
+                sessionStorage.setItem('username', username);
+                window.location.href = 'admin.html';
 
-         const adminDoc = adminsSnapshot.docs[0];
-         const adminData = adminDoc.data();
-
- sessionStorage.setItem('username', username);
-
-        if (clientData.password == hashedPassword) {
-            // Password matches, sign in successful
-            loginError.textContent = "";
-
-
-           window.location.href = 'home.html';
-
-            // For example: window.location.href = "dashboard.html";
+             }
         } else {
-
-           if (adminData.password == hashedPassword) {
-                       // Password matches, sign in successful
-                       loginError.textContent = "";
-
-                            window.location.href = 'admin.html';
-
-                       // For example: window.location.href = "dashboard.html";
-                   } else {
-                       // Password doesn't match
-                       loginError.textContent = "Invalid username or password.";
-                   }
+             loginError.textContent = "Invalid username or password.";
         }
+
     } catch (error) {
         console.error('Error:', error);
         loginError.textContent = "An error occurred. Please try again later.";
