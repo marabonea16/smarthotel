@@ -39,10 +39,10 @@ public class PopulateFirestore {
                 String id = "Room" + i;
                 int number = i;
                 double lightsOn = 0;
-                boolean windowOpened = false;
+                String windowOpened = "closed";
                 double temperature = 22.0;
-                boolean tvOpened = false;
-                boolean doorLocked = true;
+                String tvOpened = "closed";
+                String doorLocked = "locked";
                 boolean readyToClean = true;
                 userStore.storeRoom(id, number, lightsOn, windowOpened, temperature, tvOpened, doorLocked, readyToClean);
             }

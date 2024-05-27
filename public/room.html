@@ -30,6 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script type="module" src="js/room.js"></script>
 </head>
 
 <body>
@@ -170,98 +171,84 @@
                             </div>
                         </div>
                     </div>
-                    <!--
-                   <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                       <div class="room-item shadow rounded overflow-hidden">
-                           <div class="position-relative">
-                               <img class="img-fluid" src="img/room-3.jpg" alt="">
-                               <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
-                           </div>
-                           <div class="p-4 mt-2">
-                               <div class="d-flex justify-content-between mb-3">
-                                   <h5 class="mb-0">Super Deluxe</h5>
-                                   <div class="ps-2">
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                   </div>
-                               </div>
-                               <div class="d-flex mb-3">
-                                   <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                   <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                   <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                               </div>
-                               <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                               <div class="d-flex justify-content-between">
-                                   <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                   <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                       <div class="room-item shadow rounded overflow-hidden">
-                           <div class="position-relative">
-                               <img class="img-fluid" src="img/room-1.jpg" alt="">
-                               <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
-                           </div>
-                           <div class="p-4 mt-2">
-                               <div class="d-flex justify-content-between mb-3">
-                                   <h5 class="mb-0">Junior Suite</h5>
-                                   <div class="ps-2">
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                   </div>
-                               </div>
-                               <div class="d-flex mb-3">
-                                   <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                   <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                   <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                               </div>
-                               <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                               <div class="d-flex justify-content-between">
-                                   <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                   <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                       <div class="room-item shadow rounded overflow-hidden">
-                           <div class="position-relative">
-                               <img class="img-fluid" src="img/room-2.jpg" alt="">
-                               <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
-                           </div>
-                           <div class="p-4 mt-2">
-                               <div class="d-flex justify-content-between mb-3">
-                                   <h5 class="mb-0">Executive Suite</h5>
-                                   <div class="ps-2">
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                       <small class="fa fa-star text-primary"></small>
-                                   </div>
-                               </div>
-                               <div class="d-flex mb-3">
-                                   <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
-                                   <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
-                                   <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                               </div>
-                               <p class="text-body mb-3">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                               <div class="d-flex justify-content-between">
-                                   <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                   <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-                   -->
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="room-item shadow rounded overflow-hidden">
+
+                            <div class="p-4 mt-2">
+                                <h2 class="mb-0 text-center">TV</h2>
+                                <div class="d-flex justify-content-between mb-3">
+
+                                    <div class="ps-2">
+                                        <div class="tv-control-panel tv-service-item">
+                                            <div class="tv-control-buttons">
+                                                <button id="tvOpenButton" class="tv-control-button btn btn-primary">Open</button>
+                                                <button id="tvCloseButton" class="tv-control-button btn btn-primary">Close</button>
+
+                                            </div>
+                                            <div class="tv-display" id="tvDisplay">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="room-item shadow rounded overflow-hidden">
+
+                            <div class="p-4 mt-2">
+                                <h2 class="mb-0 text-center">Door</h2>
+                                <div class="d-flex justify-content-between mb-3">
+
+                                    <div class="ps-2">
+                                        <div class="door-control-panel door-service-item">
+                                            <div class="door-control-buttons">
+                                                <button id="doorLockedButton" class="door-control-button btn btn-primary">Lock</button>
+                                                <button id="doorUnlockedButton" class="door-control-button btn btn-primary">Unlock</button>
+
+                                            </div>
+                                            <div class="door-display" id="doorDisplay">
+                                                <!-- <div class="door-pane" id="doorPane"></div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="room-item shadow rounded overflow-hidden">
+
+                            <div class="p-4 mt-2">
+                                <h2 class="mb-0 text-center">Clean</h2>
+                                <div class="d-flex justify-content-between mb-3">
+
+                                    <div class="ps-2">
+                                        <div class="clean-control-panel clean-service-item">
+                                            <div class="clean-control-buttons">
+                                                <button id="cleanOpenButton" class="clean-control-button btn btn-primary">Ready To Clean</button>
+                                                <button id="cleanCloseButton" class="clean-control-button btn btn-primary">Do Not Disturb</button>
+
+                                            </div>
+                                            <div class="clean-display" id="cleanDisplay">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
                </div>
            </div>
        </div>
@@ -344,6 +331,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+
+
+    </script>
 </body>
 
 </html>

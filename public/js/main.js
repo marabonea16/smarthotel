@@ -65,76 +65,8 @@
     });
 
 
-// Lights Control
-const lightDimButton = document.getElementById("lightDimButton");
-const lightBrightenButton = document.getElementById("lightBrightenButton");
-const lightTurnOffButton = document.getElementById("lightTurnOffButton");
-const lightBulb = document.getElementById("lightBulb");
 
-let lightOpacity = 1;
 
-lightDimButton.addEventListener("click", () => {
-    if (lightOpacity > 0.2) lightOpacity -= 0.2;
-    updateLightBulb();
-});
-
-lightBrightenButton.addEventListener("click", () => {
-    if (lightOpacity < 1) lightOpacity += 0.2;
-    updateLightBulb();
-});
-
-lightTurnOffButton.addEventListener("click", () => {
-    lightOpacity = 0;
-    updateLightBulb();
-});
-
-function updateLightBulb() {
-    lightBulb.style.opacity = lightOpacity;
-}
-
-// Windows Control
-const windowOpenButton = document.getElementById("windowOpenButton");
-const windowPartialButton = document.getElementById("windowPartialButton");
-const windowCloseButton = document.getElementById("windowCloseButton");
-const windowDisplay = document.getElementById("windowDisplay");
-
-const windowStates = {
-    closed: "closed",
-    partial: "partial",
-    open: "open"
-};
-
-let currentState = windowStates.closed;
-
-windowOpenButton.addEventListener("click", () => updateWindowState(windowStates.open));
-windowPartialButton.addEventListener("click", () => updateWindowState(windowStates.partial));
-windowCloseButton.addEventListener("click", () => updateWindowState(windowStates.closed));
-
-function updateWindowState(state) {
-    windowDisplay.classList.remove(windowStates.closed, windowStates.partial, windowStates.open);
-    windowDisplay.classList.add(state);
-    currentState = state;
-}
-
-updateWindowState(currentState);
-
-// Temperature Control
-const temperatureIncreaseButton = document.getElementById("temperatureIncreaseButton");
-const temperatureDecreaseButton = document.getElementById("temperatureDecreaseButton");
-const temperatureDisplay = document.getElementById("temperatureDisplay");
-
-let currentTemperature = 20; // Initial temperature
-
-temperatureIncreaseButton.addEventListener("click", () => updateTemperature(1));
-temperatureDecreaseButton.addEventListener("click", () => updateTemperature(-1));
-
-function updateTemperature(delta) {
-    currentTemperature += delta;
-    temperatureDisplay.textContent = `${currentTemperature}°C`;
-}
-
-// Initial display of temperature
-updateTemperature(0); // To display the initial temperature (20°C)
 
     
 })(jQuery);

@@ -30,24 +30,7 @@ public class SmarthotelApplication {
 		FirebaseInitializer.initialize();
 		SpringApplication.run(SmarthotelApplication.class, args);
 
-		ScriptEngineManager factory = new ScriptEngineManager();
-		ScriptEngine engine = factory.getEngineByName("nashorn");
 
-		// Expose Java objects to JavaScript
-		engine.put("lightControl", new Lights());
-		engine.put("windowControl", new Window());
-		engine.put("temperatureControl", new Thermostat());
-
-		// Execute JavaScript code
-		String script = "lightControl.turnLightsOn();\n" +
-				"windowControl.openWindow();\n" +
-				"temperatureControl.setTemperature(72);";
-
-        try {
-            engine.eval(script);
-        } catch (ScriptException e) {
-            throw new RuntimeException(e);
-        }
 
 
 	}

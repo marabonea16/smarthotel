@@ -44,7 +44,7 @@ public class UserStore {
         adminRef.set(adminData).get();
     }
 
-    public void storeRoom(String id, int number, double lightsOn, boolean windowOpened, double temperature, boolean tvOpened, boolean doorLocked, boolean readyToClean) throws InterruptedException, ExecutionException {
+    public void storeRoom(String id, int number, double lightsOn, String windowOpened, double temperature, String tvOpened, String doorLocked, boolean readyToClean) throws InterruptedException, ExecutionException {
         DocumentReference roomRef = db.collection("rooms").document(id);
 
         Map<String, Object> roomData = new HashMap<>();

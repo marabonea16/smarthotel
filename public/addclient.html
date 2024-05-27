@@ -30,6 +30,10 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"></script>
+    <script type="module" src="js/addclient.js"></script>
+
+
 </head>
 
 <body>
@@ -62,12 +66,11 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="home.html" class="nav-item nav-link active">Admin</a>
+                            <a href="home.html" class="nav-item nav-link">Admin</a>
 
                             <a href="rooms.html" class="nav-item nav-link">Rooms</a>
-                            <a href="addroom.html" class="nav-item nav-link">Add Room</a>
-                            <a href="addclient.html" class="nav-item nav-link">Add Client</a>
-
+                            <a href="addroom.html" class="nav-item nav-link ">Add Room</a>
+                            <a href="addclient.html" class="nav-item nav-link active">Add Client</a>
 
                         </div>
 
@@ -77,59 +80,87 @@
         </div>
     </div>
     <!-- Header End -->
-
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
-        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 700px;">
-                            <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
-                            <h1 class="display-3 text-white mb-4 animated slideInDown">Manage A Luxurious Hotel</h1>
-                            <a href="rooms.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Rooms</a>
-                            <a href="addroom.html" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Add Room</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 700px;">
-                            <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Luxury Living</h6>
-                            <h1 class="display-3 text-white mb-4 animated slideInDown">Manage A Luxurious Hotel</h1>
-                            <a href="rooms.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Rooms</a>
-                            <a href="addroom.html" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Add Room</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp " data-wow-delay="0.1s">
+                <h1 class="mb-5">Add <span class="text-primary text-uppercase">Client</span></h1>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="row g-4">
+
+                    <div class="client-info">
+
+                        <form id="client-form">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="id" placeholder="ID">
+                                        <label for="id">ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" placeholder="Name">
+                                        <label for="name">Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="username" placeholder="Username">
+                                        <label for="username">Username</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="password" placeholder="Password">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="arrival" placeholder="Arrival Date">
+                                        <label for="arrival">Arrival Date</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="departure" placeholder="Departure Date">
+                                        <label for="departure">Departure Date</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="roomNumber" placeholder="Room Number">
+                                        <label for="roomNumber">Room Number</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="role" placeholder="Role" value="client" readonly>
+                                        <label for="role">Role</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+
+                </div>
+
+
+
         </div>
     </div>
-    <!-- Carousel End -->
-
-
-
-
-
-
-
+    </div>
     <div class="container-xxl py-5">
         <div class="container"></div>
     </div>
-
+    <div class="container-xxl py-5">
+        <div class="container"></div>
+    </div>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
@@ -177,14 +208,8 @@
             </div>
         </div>
     </div>
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 </div>
-
-<!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="lib/wow/wow.min.js"></script>
@@ -195,10 +220,9 @@
 <script src="lib/tempusdominus/js/moment.min.js"></script>
 <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script  src="js/main.js"></script>
 
 <!-- Template Javascript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/main.js"></script>
 </body>
-
 </html>
