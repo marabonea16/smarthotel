@@ -159,7 +159,7 @@ async function getClientAndRoomInfo() {
                                             const updatedData = {
                                                lightsOn: form.elements['lightsOn'].checked ? 1 : 0,
                                                windowOpened: form.elements['windowOpened'].checked ? "open" : "closed",
-                                                temperature: form.elements['temperature'].value,
+                                                temperature: Number(form.elements['temperature'].value),
                                                 tvOpened: form.elements['tvOpened'].checked ? "open" : "closed",
                                                 doorLocked: form.elements['doorLocked'].checked ? "locked": "unlocked",
 
