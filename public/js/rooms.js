@@ -152,7 +152,7 @@ async function getClientAndRoomInfo() {
                                   const roomInfo = event.target.closest('.room-info');
                                           roomInfo.appendChild(form);
 
-
+                                    console.log("number");
                                         // Handle form submission
                                         form.addEventListener('submit', async (e) => {
                                             e.preventDefault();
